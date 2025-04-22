@@ -22,6 +22,15 @@ function moveTarget() {
   target.style.top = `${randomY}px`;
 }
 
+function reset(){
+  score = 0;
+  total_clicks = 0;
+  accuracy = 0;
+  scoreBoard.innerHTML = "Score: " + score;
+  Accuracy.innerHTML = "Accuracy: " + accuracy + "%";
+  TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
+}
+
 
 // Initial target position
 moveTarget();
@@ -30,6 +39,13 @@ const target_click = target.addEventListener("contextmenu",(e)=>{
   moveTarget();
   score++;
   scoreBoard.innerHTML = "Score: " + score;
+});
+
+const rCtrl_listen = window.addEventListener("keydown", (e)=>{
+  if(e.code == "ControlRight"){
+    e.preventDefault();
+    reset();
+  }
 });
 
 const disable_rmb_gameArea = gameArea.addEventListener("contextmenu", (e)=>{
