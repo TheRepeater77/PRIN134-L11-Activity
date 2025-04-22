@@ -2,11 +2,12 @@ const gameArea = document.getElementById('gameArea');
 const target = document.getElementById('target');
 const scoreBoard = document.getElementById('scoreBoard');
 const Accuracy = document.getElementById('Accuracy');
+const TotalClicks = document.getElementById('TotalClicks');
 
 
 
 let score = 0;
-let missclick = 0;
+let total_clicks = 0;
 let accuracy = 0;
 
 function moveTarget() {
@@ -33,7 +34,8 @@ const target_click = target.addEventListener("contextmenu",(e)=>{
 
 const disable_rmb_gameArea = gameArea.addEventListener("contextmenu", (e)=>{
   e.preventDefault();
-  missclick++;
-  accuracy = Math.round(score/missclick * 100)/100;
+  total_clicks++;
+  accuracy = Math.round(score/total_clicks * 100);
   Accuracy.innerHTML = "Accuracy: " + accuracy + "%";
+  TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
 });

@@ -27,7 +27,7 @@ body {
   transition-duration: 2s;
 }
 
-#scoreBoard,#Accuracy {
+#scoreBoard,#Accuracy,#TotalClicks {
   margin-top: 20px;
   font-size: 24px;
 }
