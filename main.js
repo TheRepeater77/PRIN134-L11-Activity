@@ -16,5 +16,12 @@ function moveTarget() {
   target.style.top = `${randomY}px`;
 }
 
+
 // Initial target position
 moveTarget();
+
+const ball_listener = target.addEventListener("click",()=>{
+  moveTarget();
+  score++;
+  scoreBoard.innerHTML = "Score: " + score;
+});
