@@ -6,8 +6,8 @@
     <title>Mouse Click and Tracking Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div id="game-con">
+<body class="center-col">
+    <div id="game-con" class="center-col">
         <div id="modeChoices">
             <button>Moving Target</button>
             <button>Ordered Scatter Shot</button>
@@ -15,10 +15,12 @@
         <div id="gameArea">
             <div id="target"></div>
         </div>
-        <div id="scoreBoard">Score: 0</div>
-        <div id="TotalClicks">Total Clicks: 0</div>
-        <div id="Accuracy">Accuracy: 0%</div>
-        <p>Reset = Right Control</p>
+        <div id="game-info">
+            <p id="scoreBoard">Score: 0</p>
+            <p id="TotalClicks">Total Clicks: 0</p>
+            <p id="Accuracy">Accuracy: 0%</p>
+            <p>Reset = Right Control</p>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
