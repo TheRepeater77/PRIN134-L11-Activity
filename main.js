@@ -8,6 +8,8 @@ const scatterShotBtn = document.getElementById('scatter-shot');
 const movingTargetTitle = document.getElementById('move-target-title');
 const scatterShotTitle = document.getElementById('scatter-target-title');
 const scatterHTMLForm = document.getElementById('scatter-form');
+const scatterFormInput = document.getElementById('ball_num_input');
+const scatterFormBtn = document.getElementById('scatter-generate-btn');
 
 let scatterBalls;
 
@@ -39,7 +41,8 @@ function reset(){
 
 
 function generateScatterShot(){
-  
+  let ball_num = scatterFormInput.value
+  console.log(ball_num);
 }
 
 // Enable Ctrl Button Reset
@@ -53,6 +56,11 @@ const rCtrl_listen = window.addEventListener("keydown", (e)=>{
 // Prevent Form Refresh
 const scatterFormDisable = scatterHTMLForm.addEventListener("submit", (e)=>{
   e.preventDefault();
+});
+
+// Scatter Generate Button
+const scatterGenerate = scatterFormBtn.addEventListener("click",()=>{
+  generateScatterShot();
 });
 
 // Change Modes
@@ -70,7 +78,6 @@ const scatterShotClick = scatterShotBtn.addEventListener("click",()=>{
     reset();
     movingTargetTitle.classList.toggle("hide");
     scatterShotTitle.classList.toggle("hide");
-    generateScatterShot();
   }
 });
 
