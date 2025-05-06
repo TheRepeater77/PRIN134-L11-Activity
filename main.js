@@ -44,6 +44,9 @@ function generateScatterShot(){
   let ball_num = parseInt(scatterFormInput.value)
   for (let i = 0; i < ball_num; i++) {
     let scatter_ball = document.createElement("div");
+    scatter_ball.classList = "scatter-targets ball";
+    scatter_ball.innerHTML = i;
+    gameArea.append(scatter_ball);
   }
 }
 
