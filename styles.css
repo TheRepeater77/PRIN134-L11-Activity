@@ -10,7 +10,7 @@ body {
 
 #gameArea {
   position: relative;
-  width: 80%;
+  width: 100%;
   height: 60%;
   border: 2px solid #000;
   background-color: #fff;
@@ -30,4 +30,20 @@ body {
 #scoreBoard,#Accuracy,#TotalClicks,p {
   margin-top: 20px;
   font-size: 24px;
+}
+
+#game-con{
+  width: 90vw;
+  height: 90vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#modeChoices{
+  align-self: flex-start;
+
+  padding-bottom: 20px;
 }
