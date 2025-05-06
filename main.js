@@ -1,10 +1,15 @@
 const gameArea = document.getElementById('gameArea');
-const target = document.getElementById('target');
+const target = document.getElementById('main-target');
 const scoreBoard = document.getElementById('scoreBoard');
 const Accuracy = document.getElementById('Accuracy');
 const TotalClicks = document.getElementById('TotalClicks');
 const movingTargetBtn = document.getElementById('moving-target');
 const scatterShotBtn = document.getElementById('scatter-shot');
+const movingTargetTitle = document.getElementById('move-target-title');
+const scatterShotTitle = document.getElementById('scatter-target-title');
+const scatterHTMLForm = document.getElementById('scatter-form');
+
+let scatterBalls;
 
 let mode = 0;
 let score = 0;
@@ -32,6 +37,11 @@ function reset(){
   TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
 }
 
+
+function generateScatterShot(){
+  
+}
+
 // Enable Ctrl Button Reset
 const rCtrl_listen = window.addEventListener("keydown", (e)=>{
   if(e.code == "ControlRight"){
@@ -40,17 +50,27 @@ const rCtrl_listen = window.addEventListener("keydown", (e)=>{
   }
 });
 
+// Prevent Form Refresh
+const scatterFormDisable = scatterHTMLForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+});
+
 // Change Modes
 const moveTargetClick = movingTargetBtn.addEventListener("click",()=>{
   if(mode != 0){
     mode = 0;
     reset();
+    movingTargetTitle.classList.toggle("hide");
+    scatterShotTitle.classList.toggle("hide");
   }
 });
 const scatterShotClick = scatterShotBtn.addEventListener("click",()=>{
   if(mode != 1){
     mode = 1;
     reset();
+    movingTargetTitle.classList.toggle("hide");
+    scatterShotTitle.classList.toggle("hide");
+    generateScatterShot();
   }
 });
 
@@ -58,19 +78,20 @@ const scatterShotClick = scatterShotBtn.addEventListener("click",()=>{
 // Initial target position
 moveTarget();
 
-
-
-
 const target_click = target.addEventListener("contextmenu",(e)=>{
-  moveTarget();
-  score++;
-  scoreBoard.innerHTML = "Score: " + score;
+  if(mode == 0){
+    moveTarget();
+    score++;
+    scoreBoard.innerHTML = "Score: " + score;
+  }
 });
 
 const disable_rmb_gameArea = gameArea.addEventListener("contextmenu", (e)=>{
   e.preventDefault();
-  total_clicks++;
-  accuracy = Math.round(score/total_clicks * 100);
-  Accuracy.innerHTML = "Accuracy: " + accuracy + "%";
-  TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
+  if(mode == 0){
+    total_clicks++;
+    accuracy = Math.round(score/total_clicks * 100);
+    Accuracy.innerHTML = "Accuracy: " + accuracy + "%";
+    TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
+  }
 });

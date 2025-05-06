@@ -12,6 +12,45 @@ body {
   justify-content: center;
 }
 
+
+.hide{
+  display: none;
+}
+
+/* ================ Top Bar START */
+#topbar{
+  width: 100%;
+  display: flex;
+}
+
+#titles{
+  position:absolute;
+  align-self: center;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.title-con{
+  position: absolute;
+}
+
+.title-con h1,label{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#modeChoices{
+  align-self: flex-start;
+  padding-bottom: 20px;
+}
+/* Top Bar END ================ */
+
+/* ================ Game Area Start */
 #gameArea {
   position: relative;
   width: 100%;
@@ -20,15 +59,21 @@ body {
   background-color: #fff;
 }
 
-#target {
+#main-target {
+  transition-duration: 2s;
+}
+
+.ball{
   position: absolute;
   width: 50px;
   height: 50px;
   background-color: red;
   border-radius: 50%;
   cursor: pointer;
+}
 
-  transition-duration: 2s;
+.scatter-targets{
+
 }
 
 #game-info p {
@@ -41,9 +86,4 @@ body {
   height: 90vh;
 
 }
-
-#modeChoices{
-  align-self: flex-start;
-
-  padding-bottom: 20px;
-}
+/* Game Area END ================ */

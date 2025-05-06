@@ -8,12 +8,28 @@
 </head>
 <body class="center-col">
     <div id="game-con" class="center-col">
-        <div id="modeChoices">
-            <button id="moving-target">Moving Target</button>
-            <button id="scatter-shot">Ordered Scatter Shot</button>
+        <div id="topbar">
+            <div id="modeChoices">
+                <button id="moving-target">Moving Target</button>
+                <button id="scatter-shot">Ordered Scatter Shot</button>
+            </div>
+            <div id="titles">
+                <div class="title-con">
+                    <h1 id="move-target-title">Moving Target</h1>
+                </div>
+                <div class="title-con">
+                    <div id="scatter-target-title" class="hide">
+                        <form id="scatter-form">
+                            <label>Ordered Scatter Shot</label>
+                            <input type="text" name="ball_num" id="ball_num_input">
+                            <button>Generate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="gameArea">
-            <div id="target"></div>
+            <div id="main-target" class="ball"></div>
         </div>
         <div id="game-info">
             <p id="scoreBoard">Score: 0</p>
