@@ -3,9 +3,10 @@ const target = document.getElementById('target');
 const scoreBoard = document.getElementById('scoreBoard');
 const Accuracy = document.getElementById('Accuracy');
 const TotalClicks = document.getElementById('TotalClicks');
+const movingTargetBtn = document.getElementById('moving-target');
+const scatterShotBtn = document.getElementById('scatter-shot');
 
-
-
+let mode = 0;
 let score = 0;
 let total_clicks = 0;
 let accuracy = 0;
@@ -31,21 +32,39 @@ function reset(){
   TotalClicks.innerHTML = "Total Clicks: " + total_clicks;
 }
 
-
-// Initial target position
-moveTarget();
-
-const target_click = target.addEventListener("contextmenu",(e)=>{
-  moveTarget();
-  score++;
-  scoreBoard.innerHTML = "Score: " + score;
-});
-
+// Enable Ctrl Button Reset
 const rCtrl_listen = window.addEventListener("keydown", (e)=>{
   if(e.code == "ControlRight"){
     e.preventDefault();
     reset();
   }
+});
+
+// Change Modes
+const moveTargetClick = movingTargetBtn.addEventListener("click",()=>{
+  if(mode != 0){
+    mode = 0;
+    reset();
+  }
+});
+const scatterShotClick = scatterShotBtn.addEventListener("click",()=>{
+  if(mode != 1){
+    mode = 1;
+    reset();
+  }
+});
+
+
+// Initial target position
+moveTarget();
+
+
+
+
+const target_click = target.addEventListener("contextmenu",(e)=>{
+  moveTarget();
+  score++;
+  scoreBoard.innerHTML = "Score: " + score;
 });
 
 const disable_rmb_gameArea = gameArea.addEventListener("contextmenu", (e)=>{
